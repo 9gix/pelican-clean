@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}{{ SITENAME|striptags }}{% endblock title %}</title>
+        {% if SITE_DESCRIPTION %}
+        <meta name="description" content="{% block head_description %}{{ SITE_DESCRIPTION }}{% endblock head_description %}">
+        {% endif %}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block meta %}
+        {% endblock meta %}
+        
+        {% block head_links %}
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/normalize.css">
+        {% endblock head_links %}
+        {% assets "core" %}
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
+        {% endassets %}
+
+        {% block head_script %}
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        {% endblock head_script %}
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <a class="test" href="{{ SITEURL }}/">{{ SITENAME }}</a>
+        <nav>
+            <ul>
+                <li><a href="/tags">Tags</a></li>
+            </ul>
+        </nav>
+        {% block content %}
+        {% endblock content %}
+
+        {% include 'footer.html' %}
+
+        {% block script %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="{{ SITEURL }}/js/plugins.js"></script>
+        <script src="{{ SITEURL }}/js/main.js"></script>
+        {% endblock script %}
+
+        {% include 'analytics.html' %}
+    </body>
+</html>

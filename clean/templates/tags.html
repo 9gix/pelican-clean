@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+All Tags - {{ super() }}
+{% endblock title %}
+
+{% block head_description %}
+All tags used in the {{ SITENAME|striptags }}.
+{% endblock head_description %}
+
+{% block content %}
+<header>
+    <h1>All Tags</h1>
+</header>
+
+<ul>
+    {% for tag, articles in tags|sort %}
+    <li>
+        <h2>{{ tag }}</h2>
+        <ul>
+        {% for article in articles %}
+            <li><a href="{{ SITE_URL }}/{{ article.url }}">{{ article.title }}</a></li>
+        {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}

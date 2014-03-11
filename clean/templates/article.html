@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ article.title }} - {{ super() }}
+{% endblock %}
+
+{% block head_description %}
+{% if article.summary %}{{ article.summary|striptags }}{% endif %}
+{% endblock %}
+
+{% block meta %}
+{% if article.tags or article.category or article.keywords %}
+<meta name="keywords" content="{{ [article.tags|join(', '), article.category, article.keywords]|join(', ') }}" />
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<article>
+    <header>
+        <h1>{{ article.title }}</h1>
+    </header>
+
+    {{ article.content }}
+</article>
+{% endblock %}
