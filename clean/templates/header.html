@@ -4,5 +4,12 @@
             </div>
             <menu class="nav">
                 <li class="nav__item"><a href="/tags">Tags</a></li>
+                {% if DISPLAY_PAGES_ON_MENU %}
+                {% for page in PAGES %}
+                <li class="nav__item">
+                    <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>
+                </li>
+                {% endfor %}
+                {% endif %}
             </menu>
         </header>
