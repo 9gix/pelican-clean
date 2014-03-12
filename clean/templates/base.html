@@ -31,14 +31,14 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <a class="test" href="{{ SITEURL }}/">{{ SITENAME }}</a>
-        <nav>
-            <ul>
-                <li><a href="/tags">Tags</a></li>
-            </ul>
-        </nav>
-        {% block content %}
-        {% endblock content %}
+        {% include 'header.html' %}
+
+        <div class="grid">
+            <div class="grid__item one-whole">
+            {% block content %}
+            {% endblock content %}
+            </div>
+        </div>
 
         {% include 'footer.html' %}
 
