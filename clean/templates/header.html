@@ -1,13 +1,17 @@
-        <header class="top">
-            <div class="brand">
-                <a href="{{ SITEURL }}/">{{ SITENAME }}</a>
+        <header class="banner">
+            <div class="logo mega">
+                <a href="{{ SITEURL }}/" class="logo__link">{{ SITENAME }}</a>
             </div>
-            <menu class="nav">
-                <li class="nav__item"><a href="/tags">Tags</a></li>
+            <menu class="main-menu nav breadcrumb">
+
+                <li data-breadcrumb="|" class="nav__item">
+                    <a href="/tags" class="menu-item__link">Tags</a>
+                </li>
+
                 {% if DISPLAY_PAGES_ON_MENU %}
                 {% for page in PAGES %}
-                <li class="nav__item">
-                    <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>
+                <li data-breadcrumb="|" class="menu-item nav__item">
+                    <a href="{{ SITEURL }}/{{ page.url }}" class="menu-item__link">{{ page.title }}</a>
                 </li>
                 {% endfor %}
                 {% endif %}
