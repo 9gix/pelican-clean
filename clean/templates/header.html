@@ -8,7 +8,7 @@
                     {% for cat, articles in categories %}
                     <li data-breadcrumb="|" 
                         class="menu-item nav__item{% if cat == category %} active{% endif %}">
-                        <a href="{{ SITEURL }}/{{ cat.url }}" class="menu-item__link">{{ cat }}</a>
+                        <a href="{{ SITEURL }}/{{ cat.url }}" class="menu-item__link">{{ cat|capitalize }}</a>
                     </li>
                     {% endfor %}
                 {% endif %}

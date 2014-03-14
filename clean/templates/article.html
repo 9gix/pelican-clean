@@ -33,7 +33,10 @@
 
                 {% if article.category %}
                 <div class="post-category">
-                    in <a class="post-category__link" href="/categories.html#{{ category|replace(' ', '-')|e }}-ref">{{ article.category }}</a> 
+                    in <a class="post-category__link" 
+                        href="/category/{{ category|replace(' ', '-')|e }}.html">
+                        <span class="loz post-category__text">{{ article.category }}</span>
+                    </a> 
                 </div>
                 {% endif %}
 
