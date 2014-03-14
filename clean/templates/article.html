@@ -15,11 +15,46 @@
 {% endblock %}
 
 {% block content %}
-<article>
-    <header>
-        <h1>{{ article.title }}</h1>
-    </header>
+    <article class="post">
+        <header>
+            <h1 class="post__title">{{ article.title }}</h1>
+            <div class="post-info">
 
-    {{ article.content }}
-</article>
+                {% if article.date %} 
+                <div class="post-publish">
+                    {% set day = article.date.strftime('%d')|int %}
+                    <time pubdate="pubdate" datetime="{{ article.date.isoformat() }}">
+                        {{ article.date.strftime('%b') }} 
+                        {{ day }} 
+                        {{- article.date.strftime(', %Y') }}
+                    </time>
+                </div>
+                {% endif %}
+
+                {% if article.category %}
+                <div class="post-category">
+                    in <a class="post-category__link" href="/categories.html#{{ category|replace(' ', '-')|e }}-ref">{{ article.category }}</a> 
+                </div>
+                {% endif %}
+
+                {% if article.tags %}
+                <div class="post-tag">
+                    <ul> 
+                        {% for tag in article.tags|sort %}
+                        <li class="post-tag__item">
+                            <a class="post-tag__link" 
+                                href="/tag/{{ tag|replace(' ', '-')|e }}.html">
+                                <span class="pill">{{ tag }}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+            </div>
+        </header>
+        <hr />
+        {{ article.content }}
+    </article>
 {% endblock %}
