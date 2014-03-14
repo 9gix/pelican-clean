@@ -4,6 +4,15 @@
             </div>
             <menu class="main-menu nav breadcrumb">
 
+                {% if DISPLAY_CATEGORIES_ON_MENU %}
+                    {% for cat, articles in categories %}
+                    <li data-breadcrumb="|" 
+                        class="menu-item nav__item{% if cat == category %} active{% endif %}">
+                        <a href="{{ SITEURL }}/{{ cat.url }}" class="menu-item__link">{{ cat }}</a>
+                    </li>
+                    {% endfor %}
+                {% endif %}
+
                 <li data-breadcrumb="|" class="nav__item">
                     <a href="/tags.html" class="menu-item__link">Tags</a>
                 </li>
