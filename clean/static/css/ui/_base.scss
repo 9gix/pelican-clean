@@ -32,9 +32,11 @@ td.code .highlight pre {
 }
 td.code {
     width: 100%;
+    max-width: 900px;
     margin-left: 0px;
     padding-left: 0px;
 }
+
 .code .highlight {
     padding-left: 10px;
 }
