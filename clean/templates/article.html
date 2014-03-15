@@ -20,10 +20,16 @@
             <h1 class="post__title">{{ article.title }}</h1>
             <div class="post-info">
 
+                {% if article.author %} 
+                <div class="post-author">
+                    <span class="milli">by</span> {{ article.author }}
+                </div>
+                {% endif %}
+
                 {% if article.date %} 
                 <div class="post-publish">
                     {% set day = article.date.strftime('%d')|int %}
-                    <time pubdate="pubdate" datetime="{{ article.date.isoformat() }}">
+                    <span class="milli">on</span> <time pubdate="pubdate" datetime="{{ article.date.isoformat() }}">
                         {{ article.date.strftime('%b') }} 
                         {{ day }} 
                         {{- article.date.strftime(', %Y') }}
@@ -33,8 +39,7 @@
 
                 {% if article.category %}
                 <div class="post-category">
-                    in <a class="post-category__link" 
-                        href="/category/{{ category|replace(' ', '-')|e }}.html">
+                    <span class="milli">in</span> <a class="post-category__link" href="/category/{{ category|replace(' ', '-')|e }}.html">
                         <span class="loz post-category__text">{{ article.category }}</span>
                     </a> 
                 </div>
