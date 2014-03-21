@@ -1,8 +1,13 @@
         <header class="banner">
-            <div class="logo mega">
+            <div class="flexbox">
+            <div class="logo flexbox__item one-half">
                 <a href="{{ SITEURL }}/" class="logo__link">{{ SITENAME }}</a>
             </div>
-            <menu class="main-menu nav breadcrumb">
+            <div class="search flexbox__item one-third">
+                <gcse:search></gcse:search>
+            </div>
+            </div>
+            <menu class="main-menu nav breadcrumb one-whole">
 
                 {% if DISPLAY_CATEGORIES_ON_MENU %}
                     {% for cat, articles in categories %}

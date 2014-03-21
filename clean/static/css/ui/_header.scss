@@ -1,5 +1,18 @@
+.banner {
+    padding:{
+        top: 10px;
+        left: 20px;
+        right: 20px;
+        bottom: 10px;
+    }
+}
+
 .logo {
-    text-align: center;
+    font: {
+        weight: 600;
+        size: 3.5rem;
+    }
+    padding-bottom: 5px;
 }
 
 .logo__link {
@@ -8,8 +21,15 @@
     }
 }
 
+input.gsc-search-button-v2 {
+    width: 69px !important;
+    height: 27px !important;
+    border: 1px;
+}
+    
 .main-menu {
-    text-align: center;
+    padding-left:0px;
+    margin-top: 5px;
 }
 
 .menu-item__link {
